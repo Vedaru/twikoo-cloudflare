@@ -12,7 +12,7 @@
   },
   "homepage": "https://twikoo.js.org",
   "devDependencies": {
-    "wrangler": "^3.99.0"
+    "wrangler": "^4.58.0"
   },
   "dependencies": {
     "twikoo-func": "^1.6.40",
