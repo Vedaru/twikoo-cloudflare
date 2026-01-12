@@ -9,12 +9,9 @@ binding = "DB" # available in your Worker on env.DB
 database_name = "twikoo"
 database_id = "b35e0bd5-6d17-42eb-a597-ff4869a74461"
 
-[[r2_buckets]]
-binding = "R2"
-bucket_name = "twikoo"
-
 [vars]
-R2_PUBLIC_URL = "https://twikoo.r2.mingy.org"
+# If you need to expose an external public URL for uploads, set it here.
+# R2_PUBLIC_URL = "https://your.r2.public.url"
 
 [dev]
 port = 5000
