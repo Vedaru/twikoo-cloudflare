@@ -404,12 +404,9 @@ export default {
         case 'EMAIL_TEST': // >= 1.4.6
           res = await emailTest(event, config, isAdmin())
         break
-        case 'UPLOAD_IMAGE': // >= 1.5.0
-          if (env.R2 && env.R2_PUBLIC_URL) {
-            res = await r2_upload(event, env.R2, env.R2_PUBLIC_URL)
-          } else {
-            res = await uploadImage(event, config)
-          }
+        case 'UPLOAD_IMAGE': // 图片上传：已被站点管理员禁用
+          // 为了彻底禁用图片上传，直接返回失败响应；前端会被配置为不显示上传控件，但这里做额外防护以防绕过。
+          res = { code: RES_CODE.FAIL, message: '图片上传功能已被管理员禁用' }
           break
         case 'COMMENT_EXPORT_FOR_ADMIN': // >= 1.6.13
           res = await commentExportForAdmin(event)
